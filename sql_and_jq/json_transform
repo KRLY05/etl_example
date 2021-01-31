@@ -1,0 +1,1 @@
+jq '. as $in | .app_list | to_entries | map(.+{"p": .value.package_name}+{"r": .key}+{"c": $in.country}+{"l": $in.list_name}+{"cat": $in.category_name}+{"ts": $in.date}) | map(del(.package_name, .key, .value)) | .[]'
